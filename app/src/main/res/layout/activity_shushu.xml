@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/eee"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/top_layout" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.4">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/the_space"
+                android:background="@drawable/send_comment"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_q"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:gravity="center"
+                    android:text="下面有几个青柠檬："
+                    android:textColor="#f9299d5f"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_list"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:gravity="center"></android.support.v7.widget.RecyclerView>
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:gravity="center"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:text="点击按钮选择你的答案"
+                    android:textColor="#f9299d5f"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:background="#99FFFFFF" />
+
+        <LinearLayout
+            android:id="@+id/lin_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_margin="6dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn01"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="14dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/send_comment"
+                    android:gravity="center"
+                    android:text="A.2个"
+                    android:textColor="#f9299d5f"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn02"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="14dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/send_comment"
+                    android:gravity="center"
+                    android:text="B.3个"
+                    android:textColor="#f9299d5f"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn03"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="14dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/send_comment"
+                    android:gravity="center"
+                    android:text="C.4个"
+                    android:textColor="#f9299d5f"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn04"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="14dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/send_comment"
+                    android:gravity="center"
+                    android:text="D.5个"
+                    android:textColor="#f9299d5f"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

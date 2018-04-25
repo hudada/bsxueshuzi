@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:background="@drawable/send_comment"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:text="1.53+55+223+223=?"
+                android:textColor="#f9299d5f"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_tip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:text="(错误！正确答案：A)"
+                android:textColor="#f9cf0c3d"
+                android:textSize="12sp"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/radg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rd_01"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="A.1232"
+                android:textColor="#f9299d5f"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/rd_02"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="A.1232"
+                android:textColor="#f9299d5f"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/rd_03"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="A.1233"
+                android:textColor="#f9299d5f"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/rd_04"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="A.1234"
+                android:textColor="#f9299d5f"
+                android:textSize="16sp" />
+        </RadioGroup>
+    </LinearLayout>
+</RelativeLayout>
