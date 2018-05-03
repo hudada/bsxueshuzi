@@ -51,14 +51,21 @@ public class ShuShuActivity extends BaseActivity {
     private ShuShuBean nowShu;
     private ArrayList<String> mData;
     private MyAdapter adapter;
+    private int ranInt;
 
     @Override
     protected void initView(Bundle savedInstanceState) {
+        if (SpUtils.getUserPoints(this)<=180){
+            ranInt=10;
+            tvTitle.setText("学数数(普通难度)");
+        }else{
+            ranInt=20;
+            tvTitle.setText("学数数(困难难度)");
+        }
         random = new Random();
         btnRight.setVisibility(View.GONE);
-        tvTitle.setText("学数数");
         shuShuBeans = MyApplication.getInstance().getShuShuBeans();
-        nowShu = shuShuBeans.get(random.nextInt(10));
+        nowShu = shuShuBeans.get(random.nextInt(ranInt));
         tvQ.setText(SpUtils.getShushuNum(this) + ".下面有几个青柠檬:");
         btn01.setText("A."+nowShu.getAnswers()[0]+"个");
         btn02.setText("B."+nowShu.getAnswers()[1]+"个");
@@ -133,7 +140,7 @@ public class ShuShuActivity extends BaseActivity {
         }
     }
     private void getNextQe(){
-        nowShu = shuShuBeans.get(random.nextInt(10));
+        nowShu = shuShuBeans.get(random.nextInt(ranInt));
         tvQ.setText(SpUtils.getShushuNum(this) + ".下面有几个青柠檬:");
         setData(nowShu.getCount());
         adapter.notifyDataSetChanged(mData);

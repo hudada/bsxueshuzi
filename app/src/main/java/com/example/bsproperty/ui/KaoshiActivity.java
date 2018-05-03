@@ -54,8 +54,8 @@ public class KaoshiActivity extends BaseActivity {
         testBeans = MyApplication.getTestBeans();
         mData = new ArrayList<>();
         while (true) {
-            if (mData.size() < 10) {
-                TestBean testBean = testBeans.get(random.nextInt(20));
+            if (mData.size() < 50) {
+                TestBean testBean = testBeans.get(random.nextInt(70));
                 if (!mData.contains(testBean)) {
                     mData.add(testBean);
                 }
@@ -120,7 +120,7 @@ public class KaoshiActivity extends BaseActivity {
                     int sum = 0;
                     for (TestBean mDatum : mData) {
                         if (mDatum.isTrue()) {
-                            sum += 10;
+                            sum += 2;
                         }
                     }
                     long curr = System.currentTimeMillis();

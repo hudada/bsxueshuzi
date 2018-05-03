@@ -99,7 +99,7 @@ public class FastActivity extends BaseActivity {
         random = new Random();
         btnRight.setVisibility(View.GONE);
         testBeans = MyApplication.getTestBeans();
-        nowTest = testBeans.get(random.nextInt(20));
+        nowTest = testBeans.get(random.nextInt(70));
         tvTestnum.setText("当前已答对" + mTotal + "道题");
         tvTest.setText(nowTest.getQue());
         btn01.setText("A." + nowTest.getAnswers()[0]);

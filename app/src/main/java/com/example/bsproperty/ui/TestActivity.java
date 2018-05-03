@@ -44,20 +44,17 @@ public class TestActivity extends BaseActivity {
     private ArrayList<TestBean> testBeans;
     private Random random;
     private TestBean nowTest;
-    private int ranInt=10;
     @Override
     protected void initView(Bundle savedInstanceState) {
-        if (SpUtils.getUserPoints(this)<=180){
-            ranInt=10;
-            tvTitle.setText("学计算(普通难度)");
-        }else{
-            ranInt=20;
-            tvTitle.setText("学计算(困难难度)");
-        }
+        tvTitle.setText("学计算");
         random = new Random();
         btnRight.setVisibility(View.GONE);
         testBeans = MyApplication.getTestBeans();
-        nowTest = testBeans.get(random.nextInt(ranInt));
+        if (SpUtils.getTestNum(this)<71){
+            nowTest = testBeans.get(SpUtils.getTestNum(this)-1);
+        }else{
+            nowTest=testBeans.get(random.nextInt(70));
+        }
         tvTestnum.setText("第"+SpUtils.getTestNum(this) + "题");
         tvTest.setText(nowTest.getQue());
         btn01.setText("A."+nowTest.getAnswers()[0]);
@@ -114,7 +111,11 @@ public class TestActivity extends BaseActivity {
     }
 
     private void getNextQe(){
-        nowTest = testBeans.get(random.nextInt(ranInt));
+        if (SpUtils.getTestNum(this)<71){
+            nowTest = testBeans.get(SpUtils.getTestNum(this)-1);
+        }else{
+            nowTest=testBeans.get(random.nextInt(70));
+        }
         tvTestnum.setText("第"+SpUtils.getTestNum(this) + "题");
         tvTest.setText(nowTest.getQue());
         btn01.setText("A."+nowTest.getAnswers()[0]);
@@ -123,14 +124,15 @@ public class TestActivity extends BaseActivity {
         btn04.setText("D."+nowTest.getAnswers()[3]);
     }
     private void loadPoint(boolean isRight) {
-        SpUtils.setTestNum(this,SpUtils.getTestNum(this)+1);
         if (isRight){
+            SpUtils.setTestNum(this,SpUtils.getTestNum(this)+1);
             SpUtils.setUserPoints(this,SpUtils.getUserPoints(this)+10);
             showToast("答对了，加10分！当前总分："+SpUtils.getUserPoints(this)+"分！");
+            getNextQe();
         }else{
             SpUtils.setUserPoints(this,SpUtils.getUserPoints(this)-5);
-            showToast("答错了，减5分！");
+            showToast("答错了，减5分！再想想吧~");
         }
-        getNextQe();
+
     }
 }

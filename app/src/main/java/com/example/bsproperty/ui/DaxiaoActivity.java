@@ -50,14 +50,21 @@ public class DaxiaoActivity extends BaseActivity {
     private ArrayList<String> mData02;
     private DaxiaoActivity.MyAdapter adapter01;
     private DaxiaoActivity.MyAdapter adapter02;
+    private int ranInt;
 
     @Override
     protected void initView(Bundle savedInstanceState) {
+        if (SpUtils.getUserPoints(this)<=180){
+            ranInt=10;
+            tvTitle.setText("学比较(普通难度)");
+        }else{
+            ranInt=20;
+            tvTitle.setText("学比较(困难难度)");
+        }
         random = new Random();
         btnRight.setVisibility(View.GONE);
-        tvTitle.setText("学比较");
         daXiaoBeans = MyApplication.getInstance().getDaXiaoBeans();
-        nowDa = daXiaoBeans.get(random.nextInt(10));
+        nowDa = daXiaoBeans.get(random.nextInt(ranInt));
         tvQ.setText(SpUtils.getDaxiaoNum(this) + ".下面括号应该填什么:");
         setData(nowDa.getLeft(), nowDa.getRight());
         rvList01.setLayoutManager(new GridLayoutManager(this, 7));
@@ -136,7 +143,7 @@ public class DaxiaoActivity extends BaseActivity {
     }
 
     private void getNextQe() {
-        nowDa = daXiaoBeans.get(random.nextInt(10));
+        nowDa = daXiaoBeans.get(random.nextInt(ranInt));
         tvQ.setText(SpUtils.getShushuNum(this) + ".下面括号应该填什么:");
         setData(nowDa.getLeft(), nowDa.getRight());
         adapter01.notifyDataSetChanged(mData01);
