@@ -21,7 +21,6 @@ import com.example.bsproperty.bean.TestBean;
 import com.example.bsproperty.utils.SpUtils;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Random;
 
 import butterknife.BindView;
